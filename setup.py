@@ -4,10 +4,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='toolbox',
+    name='detectron2',
     version='0.0.3',
-    author='Mike Huls',
-    author_email='mike_huls@hotmail.com',
+    author='user',
+    author_email='user@gmail.com',
     description='Testing installation of Package',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,6 +16,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/Muls/toolbox/issues"
     },
     license='MIT',
-    packages=['toolbox'],
+    packages=['detectron2'],
     install_requires=['requests'],
 )
