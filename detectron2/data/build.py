@@ -339,7 +339,7 @@ def _train_loader_from_config(cfg, mapper=None, *, dataset=None, sampler=None):
         "sampler": sampler,
         "mapper": mapper,
         "total_batch_size": cfg.SOLVER.IMS_PER_BATCH,
-        "aspect_ratio_grouping": cfg.DATALOADER.ASPECT_RATIO_GROUPING,
+        "aspect_ratio_grouping": False #cfg.DATALOADER.ASPECT_RATIO_GROUPING,
         "num_workers": cfg.DATALOADER.NUM_WORKERS,
     }
 
