@@ -352,11 +352,11 @@ def build_detection_train_loader(cfg, mapper=None, *, dataset=None, sampler=None
     if dataset is None:
         dataset = get_detection_dataset_dicts(
             cfg.DATASETS.TRAIN,
-            filter_empty=cfg.DATALOADER.FILTER_EMPTY_ANNOTATIONS,
-            min_keypoints=cfg.MODEL.ROI_KEYPOINT_HEAD.MIN_KEYPOINTS_PER_IMAGE
+            filter_empty= True,
+            min_keypoints= 1
             if cfg.MODEL.KEYPOINT_ON
             else 0,
-            proposal_files=cfg.DATASETS.PROPOSAL_FILES_TRAIN if cfg.MODEL.LOAD_PROPOSALS else None,
+            proposal_files=  None,
         )
         _log_api_usage("dataset." + cfg.DATASETS.TRAIN[0])
 
@@ -364,7 +364,7 @@ def build_detection_train_loader(cfg, mapper=None, *, dataset=None, sampler=None
         mapper = DatasetMapper(cfg, True)
 
     if sampler is None:
-        sampler_name = cfg.DATALOADER.SAMPLER_TRAIN
+        sampler_name = 'TrainingSampler'
         logger = logging.getLogger(__name__)
         logger.info("Using training sampler {}".format(sampler_name))
         if sampler_name == "TrainingSampler":
