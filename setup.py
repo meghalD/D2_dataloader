@@ -17,5 +17,5 @@ setuptools.setup(
     },
     license='MIT',
     packages=['detectron2'],
-    #install_requires=['requests'],
+    install_requires=['fvcore', 'omegaconf==2.1.0.dev22'],
 )
