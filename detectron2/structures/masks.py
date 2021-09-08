@@ -112,7 +112,7 @@ class BitMasks:
         return self.tensor.device
 
     #@torch.jit.unused
-    def __getitem__(self, item: Union[int, slice, torch.BoolTensor]) -> "BitMasks":
+    def __getitem__(self, item: Union[int, slice, torch.ByteTensor]) -> "BitMasks":
         """
         Returns:
             BitMasks: Create a new :class:`BitMasks` by indexing.
@@ -338,7 +338,7 @@ class PolygonMasks:
         keep = [1 if len(polygon) > 0 else 0 for polygon in self.polygons]
         return torch.from_numpy(np.asarray(keep, dtype=np.bool))
 
-    def __getitem__(self, item: Union[int, slice, List[int], torch.BoolTensor]) -> "PolygonMasks":
+    def __getitem__(self, item: Union[int, slice, List[int], torch.ByteTensor]) -> "PolygonMasks":
         """
         Support indexing over the instances and return a `PolygonMasks` object.
         `item` can be:
