@@ -311,7 +311,7 @@ class Boxes:
 
     # type "Iterator[torch.Tensor]", yield, and iter() not supported by torchscript
     # https://github.com/pytorch/pytorch/issues/18627
-    @torch.jit.unused
+    #@torch.jit.unused
     def __iter__(self):
         """
         Yield a box as a Tensor of shape (4,) at a time.
