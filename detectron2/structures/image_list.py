@@ -57,7 +57,7 @@ class ImageList(object):
         size = self.image_sizes[idx]
         return self.tensor[idx, ..., : size[0], : size[1]]
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def to(self, *args: Any, **kwargs: Any) -> "ImageList":
         cast_tensor = self.tensor.to(*args, **kwargs)
         return ImageList(cast_tensor, self.image_sizes)
