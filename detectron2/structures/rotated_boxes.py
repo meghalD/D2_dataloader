@@ -479,7 +479,7 @@ class RotatedBoxes(Boxes):
     def device(self) -> torch.device:
         return self.tensor.device
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def __iter__(self):
         """
         Yield a box as a Tensor of shape (5,) at a time.
