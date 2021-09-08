@@ -103,7 +103,7 @@ class BitMasks:
         self.image_size = tensor.shape[1:]
         self.tensor = tensor
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def to(self, *args: Any, **kwargs: Any) -> "BitMasks":
         return BitMasks(self.tensor.to(*args, **kwargs))
 
@@ -111,7 +111,7 @@ class BitMasks:
     def device(self) -> torch.device:
         return self.tensor.device
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def __getitem__(self, item: Union[int, slice, torch.BoolTensor]) -> "BitMasks":
         """
         Returns:
@@ -135,11 +135,11 @@ class BitMasks:
         )
         return BitMasks(m)
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def __iter__(self) -> torch.Tensor:
         yield from self.tensor
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def __repr__(self) -> str:
         s = self.__class__.__name__ + "("
         s += "num_instances={})".format(len(self.tensor))
@@ -503,13 +503,13 @@ class ROIMasks:
             )
         return ROIMasks(t)
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def __repr__(self) -> str:
         s = self.__class__.__name__ + "("
         s += "num_instances={})".format(len(self.tensor))
         return s
 
-    @torch.jit.unused
+    #@torch.jit.unused
     def to_bitmasks(self, boxes: torch.Tensor, height, width, threshold=0.5):
         """
         Args:
