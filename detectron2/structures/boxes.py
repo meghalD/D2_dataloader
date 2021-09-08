@@ -11,15 +11,15 @@ from detectron2.utils.env import TORCH_VERSION
 _RawBoxType = Union[List[float], Tuple[float, ...], torch.Tensor, np.ndarray]
 
 
-# if TORCH_VERSION < (1, 8):
-#     _maybe_jit_unused = torch.jit.unused
-# else:
+if TORCH_VERSION < (1, 8):
+    _maybe_jit_unused = torch.jit.unused
+else:
 
-#     def _maybe_jit_unused(x):
-#         return x
+    def _maybe_jit_unused(x):
+        return x
 
-def _maybe_jit_unused(x):
-    return x
+# def _maybe_jit_unused(x):
+#     return x
 
 
 @unique
@@ -314,7 +314,7 @@ class Boxes:
 
     # type "Iterator[torch.Tensor]", yield, and iter() not supported by torchscript
     # https://github.com/pytorch/pytorch/issues/18627
-    #@torch.jit.unused
+    @torch.jit.unused
     def __iter__(self):
         """
         Yield a box as a Tensor of shape (4,) at a time.
