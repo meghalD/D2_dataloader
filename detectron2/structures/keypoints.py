@@ -68,7 +68,7 @@ class Keypoints:
         """
         return _keypoints_to_heatmap(self.tensor, boxes, heatmap_size)
 
-    def __getitem__(self, item: Union[int, slice, torch.BoolTensor]) -> "Keypoints":
+    def __getitem__(self, item: Union[int, slice, torch.ByteTensor]) -> "Keypoints":
         """
         Create a new `Keypoints` by indexing on this `Keypoints`.
 
